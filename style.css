@@ -1,0 +1,10 @@
+body {
+    background-color: #C49AC1;
+    background-image: url('Hi,.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+
+    text-decoration-color: white;
+
+  }
