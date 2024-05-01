@@ -1,33 +1,419 @@
 body {
-    background-color: rgb(128, 80, 104); 
+  background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(219,166,195,1) 45%, rgba(152,139,172,1) 71%, rgba(129,130,164,1) 80%, rgba(113,124,159,1) 86%, rgba(77,109,147,1) 100%);
 
+.header-container {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000; /* Ensure the navigation bar stays on top of other content */
+}
 
-/* Style the links inside the navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: transparent; /* Adjust background color as needed */
+}
+
+/* navigation bar */
 .topnav a {
   float: right;
-  color: #f2f2f2;
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
 }
 
-/* Change the color of links on hover */
+
 .topnav a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color:white; 
+  color:black;
 }
+
+.topnav a.active {
+  color: white; /* Adjust active text color as needed */
+}
+
 
 h1 {
-  text-align: center;
   color: white;
+  font-size: 50px;
+  font-family: serif;
+  text-align: center;
+  margin-top: -240px;
 }
 
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.aligned {
+  flex-direction: column;
+}
+
+.aligned img {
+  padding-top: 100px;
+  max-width: 252px;
+  height: auto;
+}
+
+.nextpage {
+  padding: 100px;
+
+}
+
+h2{
+  margin-top: 15%;
+  color: white;
+  text-align: left;
+  font-size: 35px;
+}
+
+p {
+  color:white; 
+  padding-right: 350px;
+  font-size: 22px;
+}
+
+p1 {
+  color:white; 
+  font-size: 22px;
+}
+
+.nextpage img {
+  max-width: 340px;
+  height: auto;
+  float:right;
+  margin-top:-40%;
+}
+
+.experiencepage {
+  padding: 100px;
+  padding-bottom: 0%;
+}
+
+h3{
+  margin-top: -5%;
+  color: white;
+  text-align: left;
+  font-size: 35px;
+}
+
+h4{
+  margin-top: 4%;
+  color: white;
+  text-align: left;
+  font-size: 35px;
+}
+
+.skillspage{
+  padding:100px;
+  padding-bottom: 0%;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 100px auto;
+
+}
+
+.container {
+  padding: 10px  50px;
+  position: relative;
+  width: 50%;
+  background: rgba(0,0,0,0.3);
+}
+
+.text-box {
+  padding: 20px 30px;
+  background: #fff;
+  position: relative;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.left-container {
+  left: 0;
+}
+
+.right-containter{
+  left: 50%;
+}
+
+.containter img{
+  position: absolute;
+  width: 40px;
+  border-radius: 50%;
+  right: -20px;
+  top: 32px;
+}
+
+.right-container img{
+  left: -20px;
+}
+
+
+@media screen and (max-width: 768px) {
+  /* Adjust image size for smaller screens */
+  .aligned img {
+    max-width: 200px; /* Reduce width for smaller screens */
+  }
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline {
+  box-sizing: border-box;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px;
+}
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+/* Container around content */
+.timeline-container {
+  box-sizing: border-box;
+  padding: 10px 50px;
+  position: relative;
+  background-color: inherit;
   width: 50%;
 }
-    
+/* The circles on the timeline */
+.timeline-container::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: #1e336c;
+  border: 4px solid #1e336c;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
 }
+/* Place the container to the left */
+.timeline-left {
+  left: 0;
+}
+/* Place the container to the right */
+.timeline-right {
+  left: 50%;
+}
+/* Add arrows to the left container (pointing right) */
+.timeline-left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+/* Add arrows to the right container (pointing left) */
+.timeline-right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+/* Fix the circle for containers on the right side */
+.timeline-right::after {
+  left: -16px;
+}
+/* The actual content */
+.timeline-content {
+  padding: 10px 30px;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+ }
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+/* Place the timelime to the left */
+  .timeline::after {
+    left: 31px;
+  }
+/* Full-width containers */
+  .timeline-container {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+/* Make sure that all arrows are pointing leftwards */
+  .timeline-container::before {
+    left: 60px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+  }
+/* Make sure all circles are at the same spot */
+  .timeline-left::after {
+    left: 15px;
+  }
+  .timeline-right::after {
+    left: 15px;
+  }
+/* Make all right containers behave like the left ones */
+  .timeline-right {
+    left: 0px;
+  }
+}
+/* Style copy */
+.timeline-date {
+  color:#480324; font-weight: 700;
+  font-size: 20px;
+}
+.timeline-copy {
+  color: black !important;
+  white-space: nonwrap;
+  display: inline-block;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px; /* Adjust as needed */
+}
+
+.buttons {
+  padding: 10px; /* Adjust as needed */
+}
+
+.button {
+  background-color:#1e336c;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 8px 10px;
+  cursor: pointer;
+  width: 150px; /* Set a fixed width */
+  height: 80px; /* Set a fixed height */
+}
+
+.button1 {
+  border-radius: 50%;
+}
+.button2 {
+  border-radius: 50%;
+}
+.button3 {
+  border-radius: 50%;
+}
+.button4 {
+  border-radius: 50%;
+}
+.button5 {
+  border-radius: 50%;
+}
+.button6 {
+  border-radius: 50%;
+}
+.button7 {
+  border-radius: 50%;
+}
+.button8 {
+  border-radius: 50%;
+}
+.button9 {
+  border-radius: 50%;
+}
+.button10 {
+  border-radius: 50%;
+}
+.button11 {
+  border-radius: 50%;
+}
+.button12 {
+  border-radius: 50%;
+}
+.button13 {
+  border-radius: 50%;
+}
+.button14 {
+  border-radius: 50%;
+}
+.button15 {
+  border-radius: 50%;
+}
+.button16 {
+  border-radius: 50%;
+}
+
+.contactspage{
+  padding:100px;
+  padding-bottom: 0%;
+  text-align: center;
+}
+
+h5{
+  margin-top: 4%;
+  color: white;
+  text-align: left;
+  font-size: 35px;
+}
+
+.contactspage form {
+  display: inline-block;
+  text-align: left;
+  margin: 0 auto; /* Center the form horizontally */
+}
+
+.contactspage .submit-button-container {
+  text-align: center; /* Center the submit button */
+}
+
+.contactspage label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.contactspage input[type="text"],
+.contactspage input[type="email"],
+.contactspage textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.contactspage input[type="submit"] {
+  background-color:#1e336c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contactspage input[type="submit"]:hover {
+  background-color:white;
+}
+
+}
+
